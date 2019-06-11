@@ -1,0 +1,301 @@
+{
+    "type": "object",
+    "properties": {
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A structure representing all grants a restricted User has on the Account. Not available for unrestricted users, as they have access to everything without grants. If retrieved from the `/profile/grants` endpoint, entities to which a User has no access will be omitted.\n",
+            "properties": {
+                "domain": {
+                    "description": "The grants this User has pertaining to Domains on this Account. There will be one entry per Domain on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "global": {
+                    "description": "A structure containing the Account-level grants a User has.\n",
+                    "properties": {
+                        "account_access": {
+                            "description": "The level of access this User has to Account-level actions, like billing information. A restricted User will never be able to manage users.\n",
+                            "enum": [
+                                null,
+                                "read_only",
+                                "read_write"
+                            ],
+                            "example": "read_only",
+                            "nullable": true,
+                            "type": "string"
+                        },
+                        "add_domains": {
+                            "description": "If true, this User may add Domains.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_images": {
+                            "description": "If true, this User may add Images.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_linodes": {
+                            "description": "If true, this User may create Linodes.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_longview": {
+                            "description": "If true, this User may create Longview clients.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_nodebalancers": {
+                            "description": "If true, this User may add NodeBalancers.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_stackscripts": {
+                            "description": "If true, this User may add StackScripts.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "add_volumes": {
+                            "description": "If true, this User may add Volumes.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "cancel_account": {
+                            "description": "If true, this User may cancel the entire Account.",
+                            "example": false,
+                            "type": "boolean"
+                        },
+                        "longview_subscription": {
+                            "description": "If true, this User may manage the Account's Longview subscription.",
+                            "example": true,
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The grants this User has pertaining to Images on this Account. There will be one entry per Image on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "linode": {
+                    "description": "The grants this User has pertaining to Linodes on this Account. There will be one entry per Linode on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "longview": {
+                    "description": "The grants this User has pertaining to Longview Clients on this Account. There will be one entry per Longview Client on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "nodebalancer": {
+                    "description": "The grants this User has pertaining to NodeBalancers on this Account. There will be one entry per NodeBalancer on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "stackscript": {
+                    "description": "The grants this User has pertaining to StackScripts on this Account.  There will be one entry per StackScript on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "volume": {
+                    "description": "The grants this User has pertaining to Volumes on this Account. There will be one entry per Volume on the Account.\n",
+                    "items": {
+                        "description": "Represents the level of access a restricted User has to a specific resource on the Account.\n",
+                        "properties": {
+                            "id": {
+                                "description": "The ID of the entity this grant applies to.\n",
+                                "example": 123,
+                                "type": "integer"
+                            },
+                            "label": {
+                                "description": "The current label of the entity this grant applies to, for display purposes.\n",
+                                "example": "example-entity",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "permissions": {
+                                "description": "The level of access this User has to this entity.  If null, this User has no access.\n",
+                                "enum": [
+                                    null,
+                                    "read_only",
+                                    "read_write"
+                                ],
+                                "example": "read_only",
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

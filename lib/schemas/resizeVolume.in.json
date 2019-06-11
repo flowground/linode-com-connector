@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "volumeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "size": {
+                    "description": "The Volume's size, in GiB.\n",
+                    "example": 30,
+                    "maximum": 10240,
+                    "type": "integer",
+                    "x-linode-cli-display": 4
+                }
+            },
+            "required": [
+                "size"
+            ],
+            "type": "object"
+        }
+    }
+}

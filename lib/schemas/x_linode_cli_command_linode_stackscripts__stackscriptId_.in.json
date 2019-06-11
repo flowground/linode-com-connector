@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "stackscriptId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

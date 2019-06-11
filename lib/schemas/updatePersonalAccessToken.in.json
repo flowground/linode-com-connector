@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "tokenId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "A Personal Access Token is a token generated manually to access the API without going through an OAuth login.  Personal Access Tokens can have scopes just like OAuth tokens do, and are commonly used to give access to command-line tools like the Linode CLI, or when writing your own integrations.\n",
+            "properties": {
+                "created": {
+                    "description": "The date and time this token was created.\n",
+                    "example": "2018-01-01T00:01:01.000Z",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 4,
+                    "x-linode-filterable": true
+                },
+                "expiry": {
+                    "description": "When this token will expire.  Personal Access Tokens cannot be renewed, so after this time the token will be completely unusable and a new token will need to be generated.  Tokens may be created with \"null\" as their expiry and will never expire unless revoked.\n",
+                    "example": "2018-01-01T13:46:32",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 6
+                },
+                "id": {
+                    "description": "This token's unique ID, which can be used to revoke it.\n",
+                    "example": 123,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "label": {
+                    "description": "This token's label.  This is for display purposes only, but can be used to more easily track what you're using each token for.\n",
+                    "example": "linode-cli",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "scopes": {
+                    "description": "The scopes this token was created with. These define what parts of the Account the token can be used to access. Many command-line tools, such as the [Linode CLI](https://github.com/linode/linode-cli), require tokens with access to `*`. Tokens with more restrictive scopes are generally more secure.\n",
+                    "example": "*",
+                    "format": "oauth-scopes",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "token": {
+                    "description": "The token used to access the API.  When the token is created, the full token is returned here.  Otherwise, only the first 16 characters are returned.\n",
+                    "example": "abcdefghijklmnop",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 5
+                }
+            },
+            "type": "object"
+        }
+    }
+}

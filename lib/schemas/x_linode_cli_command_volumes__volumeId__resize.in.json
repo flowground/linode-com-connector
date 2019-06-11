@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "volumeId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

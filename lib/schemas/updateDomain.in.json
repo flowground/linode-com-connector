@@ -1,0 +1,136 @@
+{
+    "type": "object",
+    "properties": {
+        "domainId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "A domain zonefile in our DNS system.  You must own the domain name and tell your registrar to use Linode's nameservers in order for a domain in our system to be treated as authoritative.\n",
+            "properties": {
+                "axfr_ips": {
+                    "description": "The list of IPs that may perform a zone transfer for this Domain. This is potentially dangerous, and should be set to an empty list unless you intend to use it.\n",
+                    "example": [],
+                    "items": {
+                        "format": "ip",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A description for this Domain. This is for display purposes only.\n",
+                    "example": null,
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "domain": {
+                    "description": "The domain this Domain represents. These must be unique in our system; you cannot have two Domains representing the same domain.\n",
+                    "example": "example.org",
+                    "pattern": "([a-zA-Z0-9-_]+\\.)+([a-zA-Z]{2,3}\\.)?([a-zA-Z]{2,16}|XN--[a-zA-Z0-9]+)",
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "expire_sec": {
+                    "description": "The amount of time in seconds that may pass before this Domain is no longer authoritative. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.\n",
+                    "example": 300,
+                    "type": "integer"
+                },
+                "group": {
+                    "deprecated": true,
+                    "description": "The group this Domain belongs to.  This is for display purposes only.\n",
+                    "example": null,
+                    "maxLength": 50,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-filterable": true
+                },
+                "id": {
+                    "description": "This Domain's unique ID",
+                    "example": 1234,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "master_ips": {
+                    "description": "The IP addresses representing the master DNS for this Domain.\n",
+                    "example": [],
+                    "items": {
+                        "format": "ip",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "refresh_sec": {
+                    "description": "The amount of time in seconds before this Domain should be refreshed. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.\n",
+                    "example": 300,
+                    "type": "integer"
+                },
+                "retry_sec": {
+                    "description": "The interval, in seconds, at which a failed refresh should be retried. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.\n",
+                    "example": 300,
+                    "type": "integer"
+                },
+                "soa_email": {
+                    "description": "Start of Authority email address. This is required for master Domains.\n",
+                    "example": "admin@example.org",
+                    "format": "email",
+                    "type": "string",
+                    "x-linode-cli-display": 5
+                },
+                "status": {
+                    "description": "Used to control whether this Domain is currently being rendered.\n",
+                    "enum": [
+                        "disabled",
+                        "active",
+                        "edit_mode",
+                        "has_errors"
+                    ],
+                    "example": "active",
+                    "type": "string",
+                    "x-linode-cli-color": {
+                        "active": "green",
+                        "default_": "red",
+                        "disabled": "yellow",
+                        "edit_mode": "yellow"
+                    },
+                    "x-linode-cli-display": 4
+                },
+                "tags": {
+                    "description": "An array of tags applied to this object.  Tags are for organizational purposes only.\n",
+                    "example": [
+                        "example tag",
+                        "another example"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "x-linode-filterable": true
+                },
+                "ttl_sec": {
+                    "description": "\"Time to Live\" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.\n",
+                    "example": 300,
+                    "type": "integer"
+                },
+                "type": {
+                    "description": "If this Domain represents the authoritative source of information for the domain it describes, or if it is a read-only copy of a master (also called a slave).\n",
+                    "enum": [
+                        "master",
+                        "slave"
+                    ],
+                    "example": "master",
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                }
+            },
+            "required": [
+                "id",
+                "domain",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}

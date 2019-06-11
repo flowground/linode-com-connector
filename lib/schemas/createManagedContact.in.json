@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Information about someone Linode's special forces may contact in case an issue is detected with a manager service.\n",
+            "properties": {
+                "email": {
+                    "description": "The address to email this Contact to alert them of issues.\n",
+                    "example": "john.doe@example.org",
+                    "format": "email",
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "group": {
+                    "deprecated": true,
+                    "description": "A grouping for this Contact. This is for display purposes only.\n",
+                    "example": "on-call",
+                    "maxLength": 50,
+                    "minLength": 2,
+                    "type": "string",
+                    "x-linode-cli-display": 5,
+                    "x-linode-filterable": true
+                },
+                "id": {
+                    "description": "This Contact's unique ID.\n",
+                    "example": 567,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "name": {
+                    "description": "The name of this Contact.\n",
+                    "example": "John Doe",
+                    "maxLength": 64,
+                    "minLength": 2,
+                    "pattern": "[a-zA-Z0-9-_ ]{2,64}",
+                    "type": "string",
+                    "x-linode-cli-display": 2
+                },
+                "phone": {
+                    "description": "Information about how to reach this Contact by phone.\n",
+                    "properties": {
+                        "primary": {
+                            "description": "This Contact's primary phone number.\n",
+                            "example": "123-456-7890",
+                            "format": "phone",
+                            "nullable": true,
+                            "type": "string"
+                        },
+                        "secondary": {
+                            "description": "This Contact's secondary phone number.\n",
+                            "example": null,
+                            "format": "phone",
+                            "nullable": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-linode-cli-display": 4
+                },
+                "updated": {
+                    "description": "When this Contact was last updated.\n",
+                    "example": "2018-01-01T00:01:01",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

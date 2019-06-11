@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "clientId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "format": "binary",
+            "type": "string"
+        }
+    }
+}

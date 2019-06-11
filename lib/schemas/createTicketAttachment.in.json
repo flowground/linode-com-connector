@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "ticketId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "file": {
+                    "description": "The local, absolute path to the file you want to attach to your Support Ticket.\n",
+                    "example": "/Users/LinodeGuy/pictures/screen_shot.jpg",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "file"
+            ],
+            "type": "object"
+        }
+    }
+}

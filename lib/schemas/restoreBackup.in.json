@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "backupId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "linode_id": {
+                    "description": "The ID of the Linode to restore a Backup to.\n",
+                    "example": 234,
+                    "type": "integer"
+                },
+                "overwrite": {
+                    "description": "If True, deletes all Disks and Configs on the target Linode before restoring.\n",
+                    "example": true,
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "linode_id"
+            ],
+            "type": "object"
+        }
+    }
+}

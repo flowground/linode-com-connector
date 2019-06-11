@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "config_id": {
+                    "description": "When creating a Volume attached to a Linode, the ID of the Linode Config to include the new Volume in. This Config must belong to the Linode referenced by `linode_id`. Must _not_ be provided if `linode_id` is not sent. If a `linode_id` is sent without a `config_id`, the volume will be attached:\n\n  * to the Linode's only config if it only has one config.\n  * to the Linode's last used config, if possible.\n\nIf no config can be selected for attachment, an error will be returned.\n",
+                    "example": 23456,
+                    "type": "integer"
+                },
+                "label": {
+                    "description": "The Volume's label, which is also used in the `filesystem_path` of the resulting volume.\n",
+                    "example": "my-volume",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z]((?!--|__)[a-zA-Z0-9-_])+$",
+                    "type": "string"
+                },
+                "linode_id": {
+                    "description": "The Linode this volume should be attached to upon creation. If not given, the volume will be created without an attachment.\n",
+                    "example": 123,
+                    "type": "integer"
+                },
+                "region": {
+                    "description": "The Region to deploy this Volume in. This is only required if a linode_id is not given.\n",
+                    "example": null,
+                    "type": "string"
+                },
+                "size": {
+                    "default": 20,
+                    "description": "The initial size of this volume, in GB.  Be aware that volumes may only be resized up after creation.\n",
+                    "example": 20,
+                    "type": "integer"
+                },
+                "tags": {
+                    "description": "An array of Tags applied to this object.  Tags are for organizational purposes only.\n",
+                    "example": [
+                        "example tag",
+                        "another example"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "x-linode-filterable": true
+                }
+            },
+            "type": "object"
+        }
+    }
+}

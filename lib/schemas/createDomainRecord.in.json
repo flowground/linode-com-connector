@@ -1,0 +1,103 @@
+{
+    "type": "object",
+    "properties": {
+        "domainId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "A single record on a Domain.\n",
+                    "properties": {
+                        "id": {
+                            "description": "This Record's unique ID.",
+                            "example": 123456,
+                            "readOnly": true,
+                            "type": "integer",
+                            "x-linode-cli-display": 1
+                        },
+                        "name": {
+                            "description": "The name of this Record. This field's actual usage depends on the type of record this represents. For A and AAAA records, this is the subdomain being associated with an IP address.\n",
+                            "example": "test",
+                            "maxLength": 100,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-linode-cli-display": 3
+                        },
+                        "port": {
+                            "description": "The port this Record points to.\n",
+                            "example": 80,
+                            "type": "integer"
+                        },
+                        "priority": {
+                            "description": "The priority of the target host. Lower values are preferred.\n",
+                            "example": 50,
+                            "maximum": 255,
+                            "minimum": 0,
+                            "type": "integer",
+                            "x-linode-cli-display": 6
+                        },
+                        "protocol": {
+                            "description": "The protocol this Record's service communicates with. Only valid for SRV records.\n",
+                            "example": null,
+                            "nullable": true,
+                            "type": "string"
+                        },
+                        "service": {
+                            "description": "The service this Record identified. Only valid for SRV records.\n",
+                            "example": null,
+                            "nullable": true,
+                            "type": "string"
+                        },
+                        "tag": {
+                            "description": "The tag portion of a CAA record. It is invalid to set this on other record types.\n",
+                            "example": null,
+                            "nullable": true,
+                            "type": "string"
+                        },
+                        "target": {
+                            "description": "The target for this Record. This field's actual usage depends on the type of record this represents. For A and AAAA records, this is the address the named Domain should resolve to.\n",
+                            "example": "12.34.56.78",
+                            "type": "string",
+                            "x-linode-cli-display": 4
+                        },
+                        "ttl_sec": {
+                            "description": "\"Time to Live\" - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.\n",
+                            "example": 604800,
+                            "type": "integer",
+                            "x-linode-cli-display": 5
+                        },
+                        "type": {
+                            "description": "The type of Record this is in the DNS system. For example, A records associate a domain name with an IPv4 address, and AAAA records associate a domain name with an IPv6 address.\n",
+                            "enum": [
+                                "A",
+                                "AAAA",
+                                "NS",
+                                "MX",
+                                "CNAME",
+                                "TXT",
+                                "SRV",
+                                "PTR",
+                                "CAA"
+                            ],
+                            "example": "A",
+                            "type": "string",
+                            "x-linode-cli-display": 2
+                        },
+                        "weight": {
+                            "description": "The relative weight of this Record. Higher values are preferred.\n",
+                            "example": 50,
+                            "type": "integer",
+                            "x-linode-cli-display": 7
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "required": [
+                "type"
+            ]
+        }
+    }
+}

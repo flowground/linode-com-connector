@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "sshKeyId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

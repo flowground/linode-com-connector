@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Payment object request.",
+            "properties": {
+                "cvv": {
+                    "description": "CVV (Card Verification Value) of the credit card to be used for the Payment.\n",
+                    "example": "123",
+                    "type": "string"
+                },
+                "usd": {
+                    "description": "The amount in US Dollars of the Payment.\n",
+                    "example": "120.50",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "usd"
+            ],
+            "type": "object"
+        }
+    }
+}

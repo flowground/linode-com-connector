@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "An object consisting of a user identified name as the `label` and the generated key as the `ssh-key`.\n",
+            "properties": {
+                "label": {
+                    "description": "A label for the key.\n",
+                    "example": "My SSH Key",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ssh_key": {
+                    "description": "The public SSH Key, which is used to authenticate to the root user of the Linodes you deploy.\n",
+                    "format": "ssh-key",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

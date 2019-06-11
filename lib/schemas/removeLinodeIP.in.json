@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "address": {
+            "required": true,
+            "format": "ip",
+            "type": "string"
+        }
+    }
+}

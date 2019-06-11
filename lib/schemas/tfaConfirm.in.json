@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "tfa_code": {
+                    "description": "The Two Factor code you generated with your Two Factor secret. These codes are time-based, so be sure it is current.\n",
+                    "example": "213456",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

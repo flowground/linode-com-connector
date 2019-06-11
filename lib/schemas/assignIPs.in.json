@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "assignments": {
+                    "description": "The list of assignments to make.  You must have read_write access to all IPs being assigned and all Linodes being assigned to in order for the assignments to succeed.\n",
+                    "items": {
+                        "properties": {
+                            "address": {
+                                "description": "Ths IP Address for this assignment. Must be a IPv4 address you can access in the Region specified. May be a public or private address.\n",
+                                "example": "12.34.56.78",
+                                "format": "ip",
+                                "type": "string"
+                            },
+                            "linode_id": {
+                                "description": "The ID of the Linode to assign this address to. The IP's previous Linode will lose this address, and must end up with at least one public address and no more than one private address once all assignments have been made.\n",
+                                "example": 123,
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "region": {
+                    "description": "The ID of the Region in which these assignments are to take place.  All IPs and Linodes must exist in this Region.\n",
+                    "example": "us-east",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "region",
+                "assignments"
+            ],
+            "type": "object"
+        }
+    }
+}

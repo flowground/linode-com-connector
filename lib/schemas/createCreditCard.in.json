@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "An object representing the credit card information you have on file with Linode to make Payments against your Account.\n",
+                    "properties": {
+                        "card_number": {
+                            "description": "Your credit card number. No spaces or dashes allowed.",
+                            "example": 4111111111111111,
+                            "format": "PAN",
+                            "maxLength": 23,
+                            "minLength": 13,
+                            "type": "string"
+                        },
+                        "expiry_month": {
+                            "description": "A value from 1-12 representing the expiration month of your credit card.\n\n  * 1 = January\n  * 2 = February\n  * 3 = March\n  * Etc.\n",
+                            "example": 12,
+                            "type": "integer"
+                        },
+                        "expiry_year": {
+                            "description": "A four-digit integer representing the expiration year of your credit card.\nThe combination of `expiry_month` and `expiry_year` must result in a month/year combination of the current month or in the future. An expiration date set in the past is invalid.\n",
+                            "example": 2020,
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "card_number",
+                        "expiry_month",
+                        "expiry_year"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "properties": {
+                        "cvv": {
+                            "description": "The Card Verification Value on the back of the card.\n",
+                            "example": "123",
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

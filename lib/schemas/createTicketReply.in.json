@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "ticketId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "The content of your reply.\n",
+                    "example": "Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!\n",
+                    "maxLength": 65535,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "diskId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "created": {
+                    "description": "When this Linode was created.",
+                    "example": "2018-01-01T00:01:01",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "filesystem": {
+                    "description": "The Disk filesystem can be one of:\n\n  * raw - No filesystem, just a raw binary stream.\n  * swap - Linux swap area.\n  * ext3 - The ext3 journaling filesystem for Linux.\n  * ext4 - The ext4 journaling filesystem for Linux.\n  * initrd - initrd (uncompressed initrd, ext2, max 32 MB).\n",
+                    "enum": [
+                        "raw",
+                        "swap",
+                        "ext3",
+                        "ext4",
+                        "initrd"
+                    ],
+                    "example": "ext4",
+                    "type": "string",
+                    "x-linode-cli-display": 5
+                },
+                "id": {
+                    "description": "This Disk's ID which must be provided for all operations impacting this Disk.\n",
+                    "example": 25674,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "label": {
+                    "description": "The Disk's label is for display purposes only.\n",
+                    "example": "Debian 9 Disk",
+                    "maxLength": 48,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "size": {
+                    "description": "The size of the Disk in MB.",
+                    "example": 48640,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 4,
+                    "x-linode-filterable": true
+                },
+                "status": {
+                    "description": "A brief description of this Disk's current state. This field may change without direct action from you, as a result of operations performed to the Disk or the Linode containing the Disk.\n",
+                    "enum": [
+                        "ready",
+                        "not ready",
+                        "deleting"
+                    ],
+                    "example": "ready",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-color": {
+                        "default_": "yellow",
+                        "not ready": "red",
+                        "ready": "green"
+                    },
+                    "x-linode-cli-display": 3
+                },
+                "updated": {
+                    "description": "When this Linode was last updated.",
+                    "example": "2018-01-01T00:01:01",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

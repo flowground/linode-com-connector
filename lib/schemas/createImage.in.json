@@ -1,0 +1,126 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Private Image object",
+                    "properties": {
+                        "created": {
+                            "description": "When this Image was created.",
+                            "example": "2018-01-01T00:01:01",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "created_by": {
+                            "description": "The name of the User who created this Image.\n",
+                            "example": "somename",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "deprecated": {
+                            "description": "Whether or not this Image is deprecated. Will only be True for deprecated public Images.\n",
+                            "example": false,
+                            "readOnly": true,
+                            "type": "boolean",
+                            "x-linode-filterable": true
+                        },
+                        "description": {
+                            "description": "A detailed description of this Image.",
+                            "example": "The detailed description of my Image.",
+                            "type": "string",
+                            "x-linode-cli-color": {
+                                "None": "black",
+                                "default_": "white"
+                            },
+                            "x-linode-cli-display": 4
+                        },
+                        "expiry": {
+                            "description": "Only Images created automatically (from a deleted Linode; type=automatic) will expire.\n",
+                            "example": "2018-08-01T00:01:01",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "The unique ID of this Image.",
+                            "example": "private/67848373",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-linode-cli-display": 1
+                        },
+                        "is_public": {
+                            "description": "True if the Image is public.",
+                            "example": false,
+                            "readOnly": true,
+                            "type": "boolean",
+                            "x-linode-cli-display": 5,
+                            "x-linode-filterable": true
+                        },
+                        "label": {
+                            "description": "A short description of the Image. Labels cannot contain special characters.\n",
+                            "example": "My gold-master image",
+                            "type": "string",
+                            "x-linode-cli-display": 2,
+                            "x-linode-filterable": true
+                        },
+                        "size": {
+                            "description": "The minimum size this Image needs to deploy. Size is in MB.\n",
+                            "example": 2500,
+                            "readOnly": true,
+                            "type": "integer",
+                            "x-linode-cli-display": 6,
+                            "x-linode-filterable": true
+                        },
+                        "type": {
+                            "description": "How the Image was created. \"Manual\" Images can be created at any time. \"Automatic\" images are created automatically from a deleted Linode.\n",
+                            "enum": [
+                                "manual",
+                                "automatic"
+                            ],
+                            "example": "manual",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "vendor": {
+                            "description": "The upstream distribution vendor. `None` for private Images.\n",
+                            "example": null,
+                            "nullable": true,
+                            "readOnly": true,
+                            "type": "string",
+                            "x-linode-cli-color": {
+                                "None": "black",
+                                "default_": "white"
+                            },
+                            "x-linode-cli-display": 3,
+                            "x-linode-filterable": true
+                        }
+                    },
+                    "type": "object"
+                },
+                {
+                    "properties": {
+                        "description": {
+                            "description": "A detailed description of this Image.\n",
+                            "type": "string"
+                        },
+                        "disk_id": {
+                            "description": "The ID of the Linode Disk that this Image will be created from.\n",
+                            "example": 42,
+                            "type": "integer"
+                        },
+                        "label": {
+                            "description": "A short title of this Image. Defaults to the label of the Disk it is being created from if not provided.\n",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "required": [
+                "disk_id"
+            ]
+        }
+    }
+}

@@ -1,0 +1,239 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "comments": {
+                    "description": "Optional field for arbitrary User comments on this Config.",
+                    "example": "This is my main Config",
+                    "nullable": true,
+                    "type": "string"
+                },
+                "devices": {
+                    "properties": {
+                        "sda": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdb": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdc": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdd": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sde": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdf": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdg": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdh": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "helpers": {
+                    "description": "Helpers enabled when booting to this Linode Config.",
+                    "properties": {
+                        "devtmpfs_automount": {
+                            "description": "Populates the /dev directory early during boot without udev.  Defaults to false.\n",
+                            "example": false,
+                            "type": "boolean"
+                        },
+                        "distro": {
+                            "description": "Helps maintain correct inittab/upstart console device.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "modules_dep": {
+                            "description": "Creates a modules dependency file for the Kernel you run.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "network": {
+                            "description": "Automatically configures static networking.",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "updatedb_disabled": {
+                            "description": "Disables updatedb cron job to avoid disk thrashing.",
+                            "example": true,
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "id": {
+                    "description": "The ID of this Config.",
+                    "example": 23456,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "kernel": {
+                    "description": "A Kernel ID to boot a Linode with. Defaults to \"linode/latest-64bit\".",
+                    "example": "linode/latest-64bit",
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "label": {
+                    "description": "The Config's label is for display purposes only.\n",
+                    "example": "My Config",
+                    "maxLength": 48,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "memory_limit": {
+                    "description": "Defaults to the total RAM of the Linode.\n",
+                    "example": 2048,
+                    "type": "integer"
+                },
+                "root_device": {
+                    "description": "The root device to boot. The corresponding disk must be attached.\n",
+                    "example": "/dev/sda",
+                    "type": "string"
+                },
+                "run_level": {
+                    "description": "Defines the state of your Linode after booting. Defaults to `default`.\n",
+                    "enum": [
+                        "default",
+                        "single",
+                        "binbash"
+                    ],
+                    "example": "default",
+                    "type": "string"
+                },
+                "virt_mode": {
+                    "description": "Controls the virtualization mode. Defaults to `paravirt`.\n* `paravirt` is suitable for most cases. Linodes running in paravirt mode\n  share some qualities with the host, ultimately making it run faster since\n  there is less transition between it and the host.\n* `full_virt` affords more customization, but is slower because 100% of the VM\n  is virtualized.\n",
+                    "enum": [
+                        "paravirt",
+                        "fullvirt"
+                    ],
+                    "example": "paravirt",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "label",
+                "devices"
+            ],
+            "type": "object"
+        }
+    }
+}

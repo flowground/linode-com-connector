@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "appId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

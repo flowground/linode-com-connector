@@ -1,0 +1,69 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "Settings for a specific Linode related to Managed Services. There is one ManagedLinodeSettings object for each Linode on your Account.\n",
+            "properties": {
+                "group": {
+                    "deprecated": true,
+                    "description": "The group of the Linode these Settings are for. This is for display purposes only.\n",
+                    "example": "linodes",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "id": {
+                    "description": "The ID of the Linode these Settings are for.\n",
+                    "example": 123,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "label": {
+                    "description": "The label of the Linode these Settings are for.\n",
+                    "example": "linode123",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 2
+                },
+                "ssh": {
+                    "description": "The SSH settings for this Linode.\n",
+                    "properties": {
+                        "access": {
+                            "description": "If true, Linode special forces may access this Linode over ssh to respond to Issues.\n",
+                            "example": true,
+                            "type": "boolean"
+                        },
+                        "ip": {
+                            "description": "The IP Linode special forces should use to access this Linode when responding to an Issue.\n",
+                            "example": "12.34.56.78",
+                            "format": "ip",
+                            "type": "string"
+                        },
+                        "port": {
+                            "description": "The port Linode special forces should use to access this Linode over ssh to respond to an Issue.\n",
+                            "example": 22,
+                            "maximum": 65535,
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        "user": {
+                            "description": "The user Linode's special forces should use when accessing this Linode to respond to an issue.\n",
+                            "example": "linode",
+                            "maxLength": 32,
+                            "minLength": 0,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-linode-cli-display": 4
+                }
+            },
+            "type": "object"
+        }
+    }
+}

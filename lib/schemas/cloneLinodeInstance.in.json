@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "backups_enabled": {
+                    "description": "If this field is set to `true`, the created Linode will\nautomatically be enrolled in the Linode Backup service. This\nwill incur an additional charge. Pricing is included in the\nresponse from\n[/linodes/types](#operation/getLinodeTypes).\n\n* Can only be included when cloning to a new Linode.\n",
+                    "example": true,
+                    "type": "boolean"
+                },
+                "configs": {
+                    "description": "All configs attached to will be cloned from the source Linode if not provided.\n",
+                    "items": {
+                        "example": 23456,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "disks": {
+                    "description": "All disks attached to configs will be cloned from the source Linode if not provided.\n",
+                    "items": {
+                        "example": 25674,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "group": {
+                    "deprecated": true,
+                    "description": "A label used to group Linodes for display. Linodes are not required to have a group.\n",
+                    "example": "Linode-Group",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The label to assign this Linode when cloning to a new Linode.\n* Can only be provided when cloning to a new Linode. * Defaults to \"linode\".\n",
+                    "example": "cloned-linode",
+                    "type": "string"
+                },
+                "linode_id": {
+                    "description": "If an existing Linode is to be the target for the clone, the ID of that Linode. The existing Linode must have enough resources to accept the clone.\n",
+                    "example": 124,
+                    "type": "integer"
+                },
+                "region": {
+                    "description": "This is the Region where the Linode will be deployed.\nTo view all available Regions you can deploy to see [/regions](#operation/getRegions).\n* Region can only be provided when cloning to a new Linode.\n",
+                    "example": "us-east",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "A Linode's Type determines what resources are available to\nit, including disk space, memory, and virtual cpus. The\namounts available to a specific Linode are returned as\n`specs` on the Linode object.\n\nTo view all available Linode Types you can deploy with\nsee [/linode/types](#operation/getLinodeTypes).\n\n* Type can only be provided when cloning to a new Linode.\n",
+                    "example": "g6-standard-2",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

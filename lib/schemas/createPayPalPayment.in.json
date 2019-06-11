@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "An object representing the staging of a Payment via PayPal.\n",
+            "properties": {
+                "cancel_url": {
+                    "description": "The URL to have PayPal redirect to when Payment is cancelled.",
+                    "example": "https://example.org",
+                    "type": "string"
+                },
+                "redirect_url": {
+                    "description": "The URL to have PayPal redirect to when Payment is approved.",
+                    "example": "https://example.org",
+                    "type": "string"
+                },
+                "usd": {
+                    "description": "The amount, in US dollars, of the Payment.",
+                    "example": "120.50",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cancel_url",
+                "redirect_url",
+                "usd"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "address": {
+            "required": true,
+            "format": "ip",
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "ticketId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

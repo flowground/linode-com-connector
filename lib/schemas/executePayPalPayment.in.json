@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "An object representing an execution of Payment to PayPal to capture the funds and credit your Linode Account.\n",
+            "properties": {
+                "payer_id": {
+                    "description": "The PayerID returned by PayPal during the transaction authorization process.\n",
+                    "example": "ABCDEFGHIJKLM",
+                    "type": "string"
+                },
+                "payment_id": {
+                    "description": "The PaymentID returned from [POST /account/payments/paypal](#operation/createPayPalPayment) that has been approved with PayPal.\n",
+                    "example": "PAY-1234567890ABCDEFGHIJKLMN",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "payer_id",
+                "payment_id"
+            ],
+            "type": "object"
+        }
+    }
+}

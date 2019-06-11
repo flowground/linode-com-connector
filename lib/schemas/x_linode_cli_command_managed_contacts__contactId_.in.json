@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "contactId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

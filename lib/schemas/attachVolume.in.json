@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "volumeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "config_id": {
+                    "description": "The ID of the Linode Config to include this Volume in. Must belong to the Linode referenced by `linode_id`. If not given, the last booted Config will be chosen.\n",
+                    "example": 23456,
+                    "type": "integer"
+                },
+                "linode_id": {
+                    "allOf": [
+                        {
+                            "description": "If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.\n",
+                            "example": 12346,
+                            "nullable": true,
+                            "type": "integer",
+                            "x-linode-cli-display": 6
+                        }
+                    ],
+                    "readOnly": false
+                }
+            },
+            "required": [
+                "linode"
+            ],
+            "type": "object"
+        }
+    }
+}

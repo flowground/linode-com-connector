@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "volumeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "label": {
+                    "description": "The Volume's label is for display purposes only.\n",
+                    "example": "my-volume",
+                    "maxLength": 32,
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z]((?!--|__)[a-zA-Z0-9-_])+$",
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "address": {
+            "required": true,
+            "format": "ip",
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "An IP address that exists in Linode's system, either IPv4 or IPv6.\n",
+            "properties": {
+                "address": {
+                    "description": "The IP address.\n",
+                    "example": "97.107.143.141",
+                    "format": "ip",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 1
+                },
+                "gateway": {
+                    "description": "The default gateway for this address.\n",
+                    "example": "97.107.143.1",
+                    "format": "ip",
+                    "nullable": true,
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "linode_id": {
+                    "description": "The ID of the Linode this address currently belongs to. For IPv4 addresses, this is by default the Linode that this address was assigned to on creation, and these addresses my be moved using the [/networking/ipv4/assign](#operation/assignIPs) endpoint. For SLAAC and link-local addresses, this value may not be changed.\n",
+                    "example": 123,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 6
+                },
+                "prefix": {
+                    "description": "The number of bits set in the subnet mask.\n",
+                    "example": 24,
+                    "readOnly": true,
+                    "type": "integer"
+                },
+                "public": {
+                    "description": "Whether this is a public or private IP address.\n",
+                    "example": true,
+                    "readOnly": true,
+                    "type": "boolean",
+                    "x-linode-cli-display": 3
+                },
+                "rdns": {
+                    "description": "The reverse DNS assigned to this address. For public IPv4 addresses, this will be set to a default value provided by Linode if not explicitly set.\n",
+                    "example": "test.example.org",
+                    "type": "string",
+                    "x-linode-cli-display": 4
+                },
+                "region": {
+                    "description": "The Region this IP address resides in.\n",
+                    "example": "us-east",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 5,
+                    "x-linode-filterable": true
+                },
+                "subnet_mask": {
+                    "description": "The mask that separates host bits from network bits for this address.\n",
+                    "example": "255.255.255.0",
+                    "format": "ip",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of address this is.\n",
+                    "enum": [
+                        "ipv4",
+                        "ipv6",
+                        "ipv6/pool",
+                        "ipv6/range"
+                    ],
+                    "example": "ipv4",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 2
+                }
+            },
+            "type": "object"
+        }
+    }
+}

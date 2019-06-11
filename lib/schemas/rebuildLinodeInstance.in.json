@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Common properties for creating and rebuilding Linodes.",
+                    "properties": {
+                        "authorized_keys": {
+                            "description": "A list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.\n",
+                            "example": [
+                                "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"
+                            ],
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "writeOnly": true
+                        },
+                        "authorized_users": {
+                            "description": "A list of usernames that will have their SSH keys, if any, automatically appended to the root user's `~/.ssh/authorized_keys` file.\n",
+                            "example": [
+                                "myUser",
+                                "secondaryUser"
+                            ],
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "writeOnly": true
+                        },
+                        "booted": {
+                            "description": "This field defaults to `true` if the Linode is created with an Image or from a Backup.\nIf it is deployed from an Image or a Backup and you wish it to remain `offline` after deployment, set this to `false`.\n",
+                            "type": "boolean",
+                            "writeOnly": true
+                        },
+                        "image": {
+                            "description": "An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.\nSee [/images](#operation/getImages) for more information on the Images available for you to use.\n",
+                            "example": "linode/debian9",
+                            "type": "string"
+                        },
+                        "root_pass": {
+                            "description": "This will set the root user's password on the newly-created Linode.\nThe root password must conform to the following constraints:\n\n  * May only use alphanumerics, punctuation, spaces, and tabs.\n  * Must contain at least two of the following characters classes:\n    * Upper-case letters\n    * Lower-case letters\n    * Digits\n    * Punctuation\n",
+                            "example": "aComplexP@ssword",
+                            "format": "password",
+                            "maxLength": 128,
+                            "minLength": 6,
+                            "pattern": "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\]))|((?=.*[A-Z])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\]))|((?=.*[0-9])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\])))",
+                            "type": "string",
+                            "writeOnly": true
+                        },
+                        "stackscript_data": {
+                            "description": "This field is required only if the StackScript being deployed requires input\ndata from the User for successful completion. See\n[Variables and UDFs](https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs)\nfor more details. This field is required to be valid JSON.\n",
+                            "example": {
+                                "gh_username": "linode"
+                            },
+                            "type": "object"
+                        },
+                        "stackscript_id": {
+                            "description": "A StackScript ID that will cause the referenced StackScript to be run during\ndeployment of this Linode. A compatible `image` is required to use a\nStackScript. To get a list of available StackScript and their permitted Images\nsee [/stackscripts](#operation/getStackScripts).\nThis field cannot be used when deploying from a Backup or a private Image.\n",
+                            "example": 10079,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "properties": {
+                "image": {
+                    "type": "string"
+                },
+                "root_pass": {
+                    "format": "password",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "image",
+                "root_pass"
+            ],
+            "type": "object"
+        }
+    }
+}

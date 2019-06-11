@@ -1,0 +1,125 @@
+{
+    "type": "object",
+    "properties": {
+        "nodeBalancerId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "Linode's load balancing solution.  Can handle multiple ports, SSL termination, and any number of backends.  NodeBalancer ports are configured with NodeBalancer Configs, and each config is given one or more NodeBalancer Node that accepts traffic.  The traffic should be routed to the  NodeBalancer's ip address, the NodeBalancer will handle routing individual requests to backends.\n",
+            "properties": {
+                "client_conn_throttle": {
+                    "description": "Throttle connections per second.  Set to 0 (zero) to disable throttling.\n",
+                    "example": 0,
+                    "maximum": 20,
+                    "minimum": 0,
+                    "type": "integer",
+                    "x-linode-cli-display": 6
+                },
+                "created": {
+                    "description": "When this NodeBalancer was created.\n",
+                    "example": "2018-01-01T00:01:01.000Z",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "hostname": {
+                    "description": "This NodeBalancer's hostname, ending with _.nodebalancer.linode.com_\n",
+                    "example": "nb-207-192-68-16.newark.nodebalancer.linode.com",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 4
+                },
+                "id": {
+                    "description": "This NodeBalancer's unique ID.\n",
+                    "example": 12345,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "ipv4": {
+                    "description": "This NodeBalancer's public IPv4 address.\n",
+                    "example": "12.34.56.78",
+                    "format": "ip",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 5
+                },
+                "ipv6": {
+                    "description": "This NodeBalancer's public IPv6 address.\n",
+                    "example": null,
+                    "format": "ip",
+                    "nullable": true,
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 6
+                },
+                "label": {
+                    "description": "This NodeBalancer's label. These must be unique on your Account.\n",
+                    "example": "balancer12345",
+                    "maxLength": 32,
+                    "minLength": 3,
+                    "pattern": "[a-zA-Z0-9-_]{3,32}",
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "region": {
+                    "description": "The Region where this NodeBalancer is located. NodeBalancers only support backends in the same Region.\n",
+                    "example": "us-east",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 3,
+                    "x-linode-filterable": true
+                },
+                "tags": {
+                    "description": "An array of Tags applied to this object.  Tags are for organizational purposes only.\n",
+                    "example": [
+                        "example tag",
+                        "another example"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "x-linode-filterable": true
+                },
+                "transfer": {
+                    "description": "Information about the amount of transfer this NodeBalancer has had so far this month.\n",
+                    "properties": {
+                        "in": {
+                            "description": "The total outbound transfer, in MB, used for this NodeBalancer this month.\n",
+                            "example": 28.91200828552246,
+                            "nullable": true,
+                            "readOnly": true,
+                            "type": "number"
+                        },
+                        "out": {
+                            "description": "The total inbound transfer, in MB, used for this NodeBalancer this month.\n",
+                            "example": 3.5487728118896484,
+                            "nullable": true,
+                            "readOnly": true,
+                            "type": "number"
+                        },
+                        "total": {
+                            "description": "The total transfer, in MB, used by this NodeBalancer this month.\n",
+                            "example": 32.46078109741211,
+                            "nullable": true,
+                            "readOnly": true,
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "updated": {
+                    "description": "When this NodeBalancer was last updated.\n",
+                    "example": "2018-03-01T00:01:01.000Z",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

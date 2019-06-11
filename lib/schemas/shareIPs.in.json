@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "ips": {
+                    "description": "A list of IPs that will be shared with this Linode.  When this is finished, the given Linode will be able to bring up these addresses in addition to the Linodes that these addresses belong to.  You must have access to all of these addresses and they must be in the same Region as the Linode.\n",
+                    "items": {
+                        "example": "12.34.56.78",
+                        "format": "ip",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "linode_id": {
+                    "description": "The ID of the Linode that the addresses will be shared with.\n",
+                    "example": 123,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "linode_id",
+                "ips"
+            ],
+            "type": "object"
+        }
+    }
+}

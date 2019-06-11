@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "An object representing a created Support Ticket - a question or issue and request for help from the Linode support team.\nOnly one of the ID attributes (`linode_id`, `domain_id`, etc.) can be set on a single Support Ticket.\n",
+            "properties": {
+                "description": {
+                    "description": "The full details of the issue or question.\n",
+                    "example": "I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?\n",
+                    "maxLength": 65000,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "domain_id": {
+                    "description": "The ID of the Domain this ticket is regarding, if relevant.\n",
+                    "example": null,
+                    "type": "integer"
+                },
+                "linode_id": {
+                    "description": "The ID of the Linode this ticket is regarding, if relevant.\n",
+                    "example": 123,
+                    "type": "integer"
+                },
+                "longviewclient_id": {
+                    "description": "The ID of the Longview client this ticket is regarding, if relevant.\n",
+                    "example": null,
+                    "type": "integer"
+                },
+                "nodebalancer_id": {
+                    "description": "The ID of the NodeBalancer this ticket is regarding, if relevant.\n",
+                    "example": null,
+                    "type": "integer"
+                },
+                "summary": {
+                    "description": "The summary or title for this SupportTicket.\n",
+                    "example": "Having trouble resetting root password on my Linode\n",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "volume_id": {
+                    "description": "The ID of the Volume this ticket is regarding, if relevant.\n",
+                    "example": null,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "summary",
+                "description"
+            ],
+            "type": "object"
+        }
+    }
+}

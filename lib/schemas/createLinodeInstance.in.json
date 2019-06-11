@@ -1,0 +1,106 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "authorized_keys": {
+                    "description": "A list of SSH public keys to deploy for the root user on the newly-created Linode.  Only accepted if `image` is provided.\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "authorized_users": {
+                    "description": "A list of usernames. If the usernames have associated SSH keys, the keys will be appended to the root users `~/.ssh/authorized_keys` file automatically.\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "backup_id": {
+                    "description": "A Backup ID from another Linode's available backups. Your User must have\n`read_write` access to that Linode, the Backup must have a `status` of\n`successful`, and the Linode must be deployed to the same `region` as the Backup.\nSee [/linode/instances/{linodeId}/backups](#operation/getBackups)\nfor a Linode's available backups.\n\nThis field and the `image` field are mutually exclusive.\n",
+                    "example": 1234,
+                    "type": "integer"
+                },
+                "backups_enabled": {
+                    "description": "If this field is set to `true`, the created Linode will automatically be\nenrolled in the Linode Backup service. This will incur an additional charge.\nThe cost for the Backup service is dependent on the Type of Linode deployed.\n\nThis option is always treated as `true` if the account-wide `backups_enabled`\nsetting is `true`.  See [account settings](#operaton/getAccountSettings)\nfor more information.\n\nBackup pricing is included in the response from [/linodes/types](#operation/getLinodeTypes)\n",
+                    "type": "boolean"
+                },
+                "booted": {
+                    "description": "Whether to boot this Linode after the deploy is complete. Defaults to true if `image` is provided. Not accepted if not deploying from an Image.\n",
+                    "type": "boolean"
+                },
+                "group": {
+                    "deprecated": true,
+                    "description": "A deprecated property denoting a group label for this Linode.\n",
+                    "example": "Linode-Group",
+                    "type": "string",
+                    "x-linode-filterable": true
+                },
+                "image": {
+                    "description": "An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.\nSee [/images](#operation/getImages) for more information on the Images available for you to use.\n",
+                    "example": "linode/debian9",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The Linode's label is for display purposes only. If no label is provided for a Linode, a default will be assigned.\nLinode labels have the following constraints:\n\n  * Must start with an alpha character.\n  * Must consist of alphanumeric characters, dashes (`-`), and underscores (`_`).\n  * Cannot have two dashes (`--`) or underscores (`__`) in a row.\n",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "private_ip": {
+                    "description": "If true, the created Linode will have private networking enabled.\n",
+                    "example": true,
+                    "type": "boolean"
+                },
+                "region": {
+                    "description": "The [Region](#operation/getRegions) where the Linode will be located.\n",
+                    "example": "us-east",
+                    "type": "string"
+                },
+                "root_pass": {
+                    "description": "The password for the root user on the newly-created Linode. Only accepted if \"image\" is provided.\n",
+                    "example": "s3cureP@ssw0rd",
+                    "format": "password",
+                    "type": "string"
+                },
+                "stackscript_data": {
+                    "description": "An object containing responses to any User Defined Fields present in the StackScript being deployed to this Linode. Only accepted if `stackscript_id` is given.  The required values depend on the StackScript being deployed.\n",
+                    "type": "object"
+                },
+                "stackscript_id": {
+                    "description": "The StackScript to deploy to the newly-created Linode.  If provided, \"image\" must also be provided, and must be an Image that is compatible with this StackScript.\n",
+                    "example": 10079,
+                    "type": "integer"
+                },
+                "swap_size": {
+                    "default": 512,
+                    "description": "When deploying from an Image, this field is optional, otherwise it is ignored. This is used to set the swap disk size for the newly-created Linode.\n",
+                    "example": 512,
+                    "type": "integer"
+                },
+                "tags": {
+                    "description": "An array of tags applied to this object.  Tags are for organizational purposes only.\n",
+                    "example": [
+                        "example tag",
+                        "another example"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "x-linode-filterable": true
+                },
+                "type": {
+                    "description": "The [Linode Type](#operation/getLinodeTypes) of the Linode you are creating.\n",
+                    "example": "g6-standard-2",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "region"
+            ],
+            "type": "object"
+        }
+    }
+}

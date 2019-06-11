@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "tokenId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

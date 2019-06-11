@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "domain": {
+                            "description": "The domain to import.\n",
+                            "example": "example.com",
+                            "type": "string"
+                        },
+                        "remote_nameserver": {
+                            "description": "The remote nameserver that allows zone transfers (AXFR).\n",
+                            "example": "examplenameserver.com",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "required": [
+                "domain",
+                "remote_nameserver"
+            ]
+        }
+    }
+}

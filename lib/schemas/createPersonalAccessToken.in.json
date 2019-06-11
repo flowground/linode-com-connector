@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "expiry": {
+                    "description": "When this token should be valid until.  If omitted, the new token will be valid until it is manually revoked.\n",
+                    "example": null,
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "This token's label.  This is for display purposes only, but can be used to more easily track what you're using each token for.\n",
+                    "example": "linode-cli",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "scopes": {
+                    "description": "The scopes to create the token with.  These cannot be changed after creation, and may not exceed the scopes of the acting token. If omitted, the new token will have the same scopes as the acting token.\n",
+                    "example": "*",
+                    "format": "oauth-scope",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

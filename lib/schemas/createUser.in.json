@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "email": {
+                    "description": "The new User's email address.\n",
+                    "example": "example_user@linode.com",
+                    "format": "email",
+                    "type": "string"
+                },
+                "restricted": {
+                    "description": "If true, the new User must be granted access to perform actions or access entities on this Account. See [/account/users/{username}/grants](#operation/getUserGrants) for details on how to configure grants for a restricted User.\n",
+                    "example": true,
+                    "type": "boolean"
+                },
+                "username": {
+                    "description": "The new User's username. This is used for logging in, and may also be displayed alongside actions the User performs (for example, in Events or public StackScripts).\n",
+                    "example": "example_user",
+                    "maxLength": 32,
+                    "minLength": 3,
+                    "pattern": "^[a-zA-Z0-9]((?![_-]{2,})[a-zA-Z0-9-_])+[a-zA-Z0-9]$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "username",
+                "email"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "nodeBalancerId": {
+            "required": true,
+            "type": "integer"
+        },
+        "configId": {
+            "required": true,
+            "type": "integer"
+        },
+        "nodeId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

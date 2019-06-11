@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "year": {
+            "required": true,
+            "type": "integer"
+        },
+        "month": {
+            "required": true,
+            "maximum": 12,
+            "minimum": 1,
+            "type": "integer"
+        }
+    }
+}

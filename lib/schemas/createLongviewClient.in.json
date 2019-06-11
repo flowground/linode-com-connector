@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "A LongviewClient is a single monitor set up to track statistics about one of your servers.\n",
+            "properties": {
+                "api_key": {
+                    "description": "The API key for this Client, used when configuring the Longview Client application on your Linode.\n",
+                    "example": "BD1B4B54-D752-A76D-5A9BD8A17F39DB61",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "apps": {
+                    "description": "The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.\n",
+                    "properties": {
+                        "apache": {
+                            "description": "If True, the Apache Longview Client module is monitoring Apache on your server.\n",
+                            "example": true,
+                            "readOnly": true,
+                            "type": "boolean"
+                        },
+                        "mysql": {
+                            "description": "If True, the MySQL Longview Client modules is monitoring MySQL on your server.\n",
+                            "example": true,
+                            "readOnly": true,
+                            "type": "boolean"
+                        },
+                        "nginx": {
+                            "description": "If True, the Nginx Longview Client module is monitoring Nginx on your server.\n",
+                            "example": false,
+                            "readOnly": true,
+                            "type": "boolean"
+                        }
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                },
+                "created": {
+                    "description": "When this Longview Client was created.\n",
+                    "example": "2018-01-01T00:01:01.000Z",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "id": {
+                    "description": "This Client's unique ID.\n",
+                    "example": 789,
+                    "readOnly": true,
+                    "type": "integer",
+                    "x-linode-cli-display": 1
+                },
+                "install_code": {
+                    "description": "The install code for this Client, used when configuring the Longview Client application on your Linode.\n",
+                    "example": "BD1B5605-BF5E-D385-BA07AD518BE7F321",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-linode-cli-display": 4
+                },
+                "label": {
+                    "description": "This Client's unique label. This is for display purposes only.\n",
+                    "example": "client789",
+                    "maxLength": 32,
+                    "minLength": 3,
+                    "pattern": "[a-zA-Z0-9-_]{3,32}",
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "updated": {
+                    "description": "When this Longview Client was last updated.\n",
+                    "example": "2018-01-01T00:01:01.000Z",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

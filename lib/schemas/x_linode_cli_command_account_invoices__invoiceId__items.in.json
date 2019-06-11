@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "invoiceId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

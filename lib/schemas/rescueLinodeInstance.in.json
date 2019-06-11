@@ -1,0 +1,131 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "devices": {
+                    "properties": {
+                        "sda": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdb": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdc": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdd": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sde": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdf": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "sdg": {
+                            "description": "Device can be either a Disk or Volume identified by `disk_id` or `volume_id`. Only one type per slot allowed. Can be null.\nDevices mapped from _sde_ through _sdh_ are unavailable in `fullvirt` virt_mode.\n",
+                            "properties": {
+                                "disk_id": {
+                                    "description": "The Disk ID, or `null` if a Volume is assigned to this slot.",
+                                    "example": 124458,
+                                    "type": "integer"
+                                },
+                                "volume_id": {
+                                    "description": "The Volume ID, or `null` if a Disk is assigned to this slot.",
+                                    "example": null,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

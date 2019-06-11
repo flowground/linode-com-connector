@@ -1,0 +1,111 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Account object",
+            "properties": {
+                "address_1": {
+                    "description": "First line of this Account's billing address.",
+                    "example": "123 Main Street",
+                    "maxLength": 64,
+                    "type": "string"
+                },
+                "address_2": {
+                    "description": "Second line of this Account's billing address.",
+                    "example": "Suite A",
+                    "maxLength": 64,
+                    "type": "string"
+                },
+                "balance": {
+                    "description": "This Account's balance, in US dollars.",
+                    "example": 200,
+                    "readOnly": true,
+                    "type": "number",
+                    "x-linode-cli-display": 4
+                },
+                "city": {
+                    "description": "The city for this Account's billing address.",
+                    "example": "Philadelphia",
+                    "maxLength": 24,
+                    "type": "string"
+                },
+                "company": {
+                    "description": "The company name associated with this Account.",
+                    "example": "Linode LLC",
+                    "maxLength": 128,
+                    "type": "string"
+                },
+                "country": {
+                    "description": "The two-letter country code of this Account's billing address.\n",
+                    "example": "US",
+                    "maxLength": 2,
+                    "minLength": 2,
+                    "type": "string"
+                },
+                "credit_card": {
+                    "description": "Credit Card information associated with this Account.",
+                    "properties": {
+                        "expiry": {
+                            "description": "The expiration month and year of the credit card.",
+                            "example": "11/2022",
+                            "type": "string"
+                        },
+                        "last_four": {
+                            "description": "The last four digits of the credit card associated with this Account.\n",
+                            "example": 1111,
+                            "type": "string"
+                        }
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                },
+                "email": {
+                    "description": "The email address of the person associated with this Account.",
+                    "example": "john.smith@linode.com",
+                    "maxLength": 128,
+                    "type": "string",
+                    "x-linode-cli-display": 3
+                },
+                "first_name": {
+                    "description": "The first name of the person associated with this Account.",
+                    "example": "John",
+                    "maxLength": 50,
+                    "type": "string",
+                    "x-linode-cli-display": 1
+                },
+                "last_name": {
+                    "description": "The last name of the person associated with this Account.",
+                    "example": "Smith",
+                    "maxLength": 50,
+                    "type": "string",
+                    "x-linode-cli-display": 2
+                },
+                "phone": {
+                    "description": "The phone number associated with this Account.",
+                    "example": "215-555-1212",
+                    "maxLength": 32,
+                    "type": "string"
+                },
+                "state": {
+                    "description": "If billing address is in the United States, this is the State portion of the Account's billing address. If the address is outside the US, this is the Province associated with the Account's billing address.\n",
+                    "example": "Pennsylvania",
+                    "maxLength": 24,
+                    "type": "string"
+                },
+                "tax_id": {
+                    "description": "The tax identification number associated with this Account, for tax calculations in some countries. If you do not live in a country that collects tax, this should be `null`.\n",
+                    "example": "ATU99999999",
+                    "maxLength": 100,
+                    "type": "string"
+                },
+                "zip": {
+                    "description": "The zip code of this Account's billing address.",
+                    "example": 19102,
+                    "maxLength": 16,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

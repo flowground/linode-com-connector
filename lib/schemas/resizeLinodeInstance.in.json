@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "properties": {
+                "type": {
+                    "description": "The ID representing the Linode Type.",
+                    "example": "g6-standard-2",
+                    "type": "string",
+                    "x-linode-cli-display": 1
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}

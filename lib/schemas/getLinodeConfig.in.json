@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "configId": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}

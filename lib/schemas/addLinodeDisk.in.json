@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "linodeId": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "Disk object request.",
+            "properties": {
+                "authorized_keys": {
+                    "description": "A list of public SSH keys that will be automatically appended to the root user's `~/.ssh/authorized_keys` file.\n",
+                    "example": [
+                        "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "writeOnly": true
+                },
+                "authorized_users": {
+                    "description": "A list of usernames that will have their SSH keys, if any, automatically appended to the root user's `~/.ssh/authorized_keys` file.\n",
+                    "example": [
+                        "myUser",
+                        "secondaryUser"
+                    ],
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "writeOnly": true
+                },
+                "filesystem": {
+                    "description": "The Disk filesystem can be one of:\n\n  * raw - No filesystem, just a raw binary stream.\n  * swap - Linux swap area.\n  * ext3 - The ext3 journaling filesystem for Linux.\n  * ext4 - The ext4 journaling filesystem for Linux.\n  * initrd - initrd (uncompressed initrd, ext2, max 32 MB).\n",
+                    "enum": [
+                        "raw",
+                        "swap",
+                        "ext3",
+                        "ext4",
+                        "initrd"
+                    ],
+                    "example": "ext4",
+                    "type": "string",
+                    "x-linode-cli-display": 5
+                },
+                "image": {
+                    "description": "An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.\nSee [/images](#operation/getImages) for more information on the Images available for you to use.\n",
+                    "example": "linode/debian9",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The Disk's label is for display purposes only.\n",
+                    "example": "Debian 9 Disk",
+                    "maxLength": 48,
+                    "minLength": 1,
+                    "type": "string",
+                    "x-linode-cli-display": 2,
+                    "x-linode-filterable": true
+                },
+                "read_only": {
+                    "description": "If true, this Disk is read-only.\n",
+                    "example": false,
+                    "type": "boolean"
+                },
+                "root_pass": {
+                    "description": "This will set the root user's password on the newly-created Linode.\nThe root password must conform to the following constraints:\n\n  * May only use alphanumerics, punctuation, spaces, and tabs.\n  * Must contain at least two of the following characters classes:\n    * Upper-case letters\n    * Lower-case letters\n    * Digits\n    * Punctuation\n",
+                    "example": "aComplexP@ssword",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 6,
+                    "pattern": "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\]))|((?=.*[A-Z])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\]))|((?=.*[0-9])(?=.*[!\"#$%&'()*+,-.\\/:;<=>?@\\[\\]^_`{|}~\\\\])))",
+                    "type": "string",
+                    "writeOnly": true
+                },
+                "size": {
+                    "example": 48640,
+                    "type": "integer",
+                    "x-linode-filterable": true
+                },
+                "stackscript_data": {
+                    "description": "This field is required only if the StackScript being deployed requires input\ndata from the User for successful completion. See\n[Variables and UDFs](https://www.linode.com/docs/platform/stackscripts/#variables-and-udfs)\nfor more details. This field is required to be valid JSON.\n",
+                    "example": {
+                        "gh_username": "linode"
+                    },
+                    "type": "object"
+                },
+                "stackscript_id": {
+                    "description": "A StackScript ID that will cause the referenced StackScript to be run during\ndeployment of this Linode. A compatible `image` is required to use a\nStackScript. To get a list of available StackScript and their permitted Images\nsee [/stackscripts](#operation/getStackScripts).\nThis field cannot be used when deploying from a Backup or a private Image.\n",
+                    "example": 10079,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "size",
+                "label"
+            ],
+            "type": "object"
+        }
+    }
+}
